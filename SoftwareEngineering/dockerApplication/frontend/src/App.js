@@ -1,41 +1,41 @@
-import React, { useState } from 'react';
-import { UploadOutlined, RedoOutlined} from '@ant-design/icons';
-import { Button, message, Upload, Table} from 'antd';
-import axios from 'axios';
+import React, { useState } from "react";
+import { UploadOutlined, RedoOutlined } from "@ant-design/icons";
+import { Button, message, Upload, Table } from "antd";
 
 const App = () => {
   const [file, setFile] = useState(null);
   const [uploading, setUploading] = useState(false);
 
   const [jsonData, setJsonData] = useState([]);
-  const [columns, setColumns] = useState([])
+  const [columns, setColumns] = useState([]);
 
   const frameStyle = {
-    padding: "5% 10%"
-  }
+    padding: "5% 10%",
+  };
 
   const buttonBlockStyle = {
     display: "flex",
     float: "right",
-    margin: "0 0 2% 0"
-  }
+    margin: "0 0 2% 0",
+  };
 
   const sendButtonStyle = {
-    marginLeft: "5%"
-  }
+    marginLeft: "5%",
+  };
 
   const refreshButtonStyle = {
     marginLeft: "5%",
-    padding: "0 4%"
-  }
+    padding: "0 4%",
+  };
 
   const handleUpload = async () => {
     const formData = new FormData();
-    formData.append('file', file);
+    formData.append("file", file);
 
     setUploading(true);
 
-    await axios.post('htpp://backend:8000/api/fileHandler/', {
+    await fetch("api/fileHandler/", {
+      method: "POST",
       body: formData,
     })
       .then(async (res) => {
@@ -48,8 +48,8 @@ const App = () => {
           return {
             title: name,
             dataIndex: name,
-            key: name
-          }
+            key: name,
+          };
         });
 
         setColumns(columns);
@@ -57,10 +57,10 @@ const App = () => {
       })
       .then(() => {
         setFile(null);
-        message.success('Arquivo enviado com sucesso!');
+        message.success("Arquivo enviado com sucesso!");
       })
       .catch(() => {
-        message.error('Falha ao enviar arquivo. Tente novamente!');
+        message.error("Falha ao enviar arquivo. Tente novamente!");
       })
       .finally(() => {
         setUploading(false);
@@ -84,7 +84,9 @@ const App = () => {
 
       <div style={buttonBlockStyle}>
         <Upload {...props} showUploadList={false}>
-          <Button size="large" icon={<UploadOutlined />}>{file ? file.name : "Arquivo"}</Button>
+          <Button size="large" icon={<UploadOutlined />}>
+            {file ? file.name : "Arquivo"}
+          </Button>
         </Upload>
 
         <Button
@@ -95,26 +97,24 @@ const App = () => {
           loading={uploading}
           style={sendButtonStyle}
         >
-          {uploading ? 'Processando' : 'Enviar'}
+          {uploading ? "Processando" : "Enviar"}
         </Button>
 
-        <Button 
-          size="large" 
+        <Button
+          size="large"
           icon={<RedoOutlined />}
           disabled={jsonData.length === 0}
           style={refreshButtonStyle}
           onClick={() => setJsonData([])}
-        >
-        </Button>
+        ></Button>
       </div>
 
       <div>
-      {
-        jsonData.length > 0 ? 
-        <Table columns={columns} dataSource={jsonData}/> : 
-        <h5>Sem dados para mostar.</h5>
-      }
-
+        {jsonData.length > 0 ? (
+          <Table columns={columns} dataSource={jsonData} />
+        ) : (
+          <h5>Sem dados para mostar.</h5>
+        )}
       </div>
     </div>
   );
