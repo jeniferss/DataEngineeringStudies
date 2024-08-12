@@ -2,6 +2,9 @@
 
 This repository is intended for the development of a JSON file handler system.
 
+![noData](images/image.png)
+![withData](images/imageData.png)
+
 ## Table of Contents
 
 1. [Technologies](#technologies)
@@ -36,32 +39,86 @@ $ cd dockerApplication
 ```bash
 # Install docker on your machine: https://www.docker.com/
 
-# Run the backend app
-$ docker 
+# check if docker is running on your computer
+$ docker info
+
+# Create a network for both containers
+docker network create <networkName>
+
+# Go into the backend app
+$ cd backend
+
+# Create the image for the backend app
+$ docker build . -t <imageName>
+
+# Run the backend app (if the container name is different from 'backend,' remember to update it in your client proxy - in the package.json file)
+$ docker run --name <containerName> --rm --network <networkName> -p 8000:8000 <imageName>
+
+# Go into the frontend app
+$ cd frontend
+
+# Create the image for the frontend app
+$ docker build . -t <imageName>
 
 # Run the frontend app
-$ docker 
+$ docker run --name <containerName> --rm --network <networkName> -p 3000:3000 <imageName>
 ```
 
 ### Windows
 
 ```bash
+# Go into the backend app
+$ cd backend
+
 # Create a virtual environment
 $ python -m venv venv
 
 # Activate your virtual environment
 $ venv\Scripts\activate
 
+# Install requirements
+$ pip install -r requirements.txt
+
+# Run the backend app
+$ uvicorn main:app --host 0.0.0.0 --port 8000
+
+# Go into the frontend app
+$ cd frontend
+
+# Install libs
+$ npm i 
+
+# Run the backend app
+$ npm start
+
 ```
 
 ### MacOS & Linux
 
 ```bash
+# Go into the backend app
+$ cd backend
+
 # Create a virtual environment
 python3 -m venv venv # or virtualenv venv
 
 # Activate your virtual environment
 source venv/bin/activate
+
+# Install requirements
+$ pip install -r requirements.txt
+
+# Run the backend app
+$ uvicorn main:app --host 0.0.0.0 --port 8000
+
+# Go into the frontend app
+$ cd frontend
+
+# Install libs
+$ npm i 
+
+# Run the backend app
+$ npm start
 ```
 
 ### Server & Client & Docs
@@ -69,6 +126,8 @@ source venv/bin/activate
 Server will start at: `http://127.0.0.1:8000`
 Client will start at: `htpp://127.0.0.1:3000`
 </br>
-You can se the backend docs at: `http://127.0.0.1:8000/redoc/`
+You can se the backend docs at: `http://127.0.0.1:8000/docs/`
 
 ## About
+
+The goal of this project is to learn about best practices in software engineering, such as application containerization, which is highly advantageous as it allows applications to run consistently across different environments. For illustration, a backend application was created using FastAPI and a client in React, both operating within the same network in the Docker ecosystem. The focus is on handling JSON file manipulation. You can test the application using the files available in the `/data` directory.
