@@ -19,6 +19,11 @@ const App = () => {
     margin: "0 0 2% 0",
   };
 
+  const imageStyle = {
+    maxWidth: "30%",
+    margin: "2%"
+  };
+
   const sendButtonStyle = {
     marginLeft: "5%",
   };
@@ -113,7 +118,10 @@ const App = () => {
         {jsonData.length > 0 ? (
           <Table columns={columns} dataSource={jsonData} />
         ) : (
-          <h5>Sem dados para mostar.</h5>
+          <div>
+            <h5>Sem dados para mostar.</h5>
+            <img alt="no data" style={imageStyle} src="/undraw_taken_re_yn20.svg"></img>
+          </div>
         )}
       </div>
     </div>
