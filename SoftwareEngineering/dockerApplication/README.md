@@ -18,10 +18,11 @@ A list of technologies used within the project:
 * [Python](https://www.python.org): Version 3.12
 * [FastApi](https://fastapi.tiangolo.com/): Version 0.112.0
 * [NodeJS](https://nodejs.org/pt): Version 20.0
-* [NodeJS](https://nodejs.org/pt): Version 20.0
+* [ReactJS](https://react.dev/): Version 18.3.1
 * [AntDesign](https://ant.design/): Version 5.0
 * [Docker](https://www.docker.com/)
 * [Mockaroo](https://www.mockaroo.com/)
+* [unDraw](https://undraw.co/)
 
 ## Install and Run
 
