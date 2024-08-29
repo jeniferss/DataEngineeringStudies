@@ -31,7 +31,6 @@ A list of technologies used within the project:
 $ git clone git@github.com:jeniferss/DataEngineeringStudies.git
 
 # Go into the repo app
-$ cd SoftwareEngineering
 $ cd dockerApplication
 ```
 
@@ -89,7 +88,7 @@ $ cd frontend
 # Install libs
 $ npm i 
 
-# Run the backend app
+# Run the frontend app
 $ npm start
 
 ```
@@ -118,7 +117,7 @@ $ cd frontend
 # Install libs
 $ npm i 
 
-# Run the backend app
+# Run the frontend app
 $ npm start
 ```
 
