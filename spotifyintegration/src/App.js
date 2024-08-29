@@ -9,7 +9,7 @@ function App() {
   const CLIENT_ID = process.env.REACT_APP_CLIENT_ID;
   const REDIRECT_URI = process.env.REACT_APP_REDIRECT_URI;
   const AUTH_ENDPOINT = process.env.REACT_APP_AUTH_ENDPOINT;
-  const RESONSE_TYPE = process.env.REACT_APP_RESONSE_TYPE;
+  const RESPONSE_TYPE = process.env.REACT_APP_RESPONSE_TYPE
 
   const GENRES = ["chill", "classical", "sleep", "study"];
 
@@ -18,7 +18,7 @@ function App() {
 
   const logIn = () => {
     window.open(
-      `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESONSE_TYPE}`
+      `${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`
     );
   };
 
