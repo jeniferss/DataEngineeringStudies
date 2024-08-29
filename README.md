@@ -43,7 +43,7 @@ $ npm i
 # REACT_APP_CLIENT_ID="yourToken"
 # REACT_APP_REDIRECT_URI="http://localhost:3000"
 # REACT_APP_AUTH_ENDPOINT="https://accounts.spotify.com/authorize"
-# REACT_APP_RESONSE_TYPE="token"
+# REACT_APP_RESPONSE_TYPE="token"
 
 # Run the frontend app
 $ npm start
