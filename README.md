@@ -43,9 +43,6 @@ $ pip install -r requirements.txt
 ### MacOS & Linux
 
 ```bash
-# Go into the backend app
-$ cd backend
-
 # Create a virtual environment
 python3 -m venv venv # or virtualenv venv
 
