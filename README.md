@@ -8,3 +8,4 @@ This repository aims to store all activities related to the data engineering lea
 - **Spotify API Frontend Application (`feat/atividade02`):** A frontend application with a connection to the Spotify API for music recommendations.
 - **Edited CRM Dashboard (`feat/atividade03`):** A modified version of a CRM dashboard built with React.
 - **Pyspark and Spark Exercises (`feat/spark`)**
+- **Pyspark and Airflow Exercises (`feat/atividade04`)**: Tool to orchestrate Spark applications using Airflow.
