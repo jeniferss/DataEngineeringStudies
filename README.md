@@ -59,6 +59,8 @@ $ pip install -r requirements.txt
 
 *Ensure that Apache Kafka is installed on your machine.*
 
+**Important**: the producer will run continuously and will generate between 0 and 25 messages per minute. To stop it, just press **Ctrl + C** in the terminal.
+
 ```bash
 # Open the terminal and navigate to the Kafka bin directory
 $ cd /your/path/to/kafka/bin
