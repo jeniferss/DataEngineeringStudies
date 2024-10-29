@@ -1,126 +1,101 @@
 [
   {
-    "id": 1,
     "name": "Arroz - Tipo 1 5kg",
     "price": 19.9
   },
   {
-    "id": 2,
     "name": "Feijão Preto - 1kg",
     "price": 8.5
   },
   {
-    "id": 3,
     "name": "Açúcar Cristal - 5kg",
     "price": 12.3
   },
   {
-    "id": 4,
     "name": "Sal - 1kg",
     "price": 2.99
   },
   {
-    "id": 5,
     "name": "Macarrão - Espaguete 500g",
     "price": 4.2
   },
   {
-    "id": 6,
     "name": "Óleo de Soja - 900ml",
     "price": 5.49
   },
   {
-    "id": 7,
     "name": "Leite Integral - 1L",
     "price": 3.5
   },
   {
-    "id": 8,
     "name": "Queijo Muçarela - 400g",
     "price": 18.0
   },
   {
-    "id": 9,
     "name": "Presunto - 200g",
     "price": 8.9
   },
   {
-    "id": 10,
     "name": "Pão de Forma - 500g",
     "price": 6.5
   },
   {
-    "id": 11,
     "name": "Cerveja - Lata 350ml",
     "price": 4.0
   },
   {
-    "id": 12,
     "name": "Refrigerante - 2L",
     "price": 7.0
   },
   {
-    "id": 13,
     "name": "Detergente - 500ml",
     "price": 2.5
   },
   {
-    "id": 14,
     "name": "Sabão em Pó - 1kg",
     "price": 10.99
   },
   {
-    "id": 15,
     "name": "Desinfetante - 500ml",
     "price": 3.2
   },
   {
-    "id": 16,
     "name": "Frango - Peito Desfiado 500g",
     "price": 15.0
   },
   {
-    "id": 17,
     "name": "Batata - 1kg",
     "price": 4.0
   },
   {
-    "id": 18,
     "name": "Tomate - 1kg",
     "price": 6.0
   },
   {
-    "id": 19,
     "name": "Cebola - 1kg",
     "price": 3.8
   },
   {
-    "id": 20,
     "name": "Maçã - 1kg",
     "price": 7.5
   },
   {
-    "id": 21,
     "name": "Banana - 1kg",
     "price": 5.0
   },
   {
-    "id": 22,
     "name": "Laranja - 1kg",
     "price": 4.5
   },
   {
-    "id": 23,
     "name": "Sopa - Lata 400g",
     "price": 3.99
   },
   {
-    "id": 24,
     "name": "Iogurte Natural - 170g",
     "price": 2.2
   },
   {
-    "id": 25,
     "name": "Chocolate ao Leite - 100g",
     "price": 3.0
   }

@@ -66,7 +66,7 @@ class OrderProducer:
         orders = []
         for _ in range(order_quantity):
             item_quantity = self.faker.random_int(min=1, max=len(self.products))
-            items = random.sample(self.products, item_quantity)
+            items = random.sample(self.products.copy(), item_quantity)
 
             for item in items:
                 item['quantity'] = self.faker.random_digit_not_null()
