@@ -1,10 +1,13 @@
 Faker==30.8.1
 inquirerpy==0.3.4
 kafka-python==1.4.7
-numpy==2.1.2
+numpy==1.26.4
 pandas==2.2.3
 pfzy==0.3.4
 prompt_toolkit==3.0.48
+py4j==0.10.9.7
+pyarrow==18.0.0
+pyspark==3.5.3
 python-dateutil==2.9.0.post0
 pytz==2024.2
 six==1.16.0
