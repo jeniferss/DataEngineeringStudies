@@ -2,6 +2,8 @@
 
 The objective of this project is to create a producer and consumer of sales data for an e-commerce platform using Kafka and Spark.
 
+[Watch Demo Video](images/demo.webm)
+
 ## Table of Contents
 
 1. [Technologies](#technologies)
@@ -93,7 +95,7 @@ The data in question comes from a simulated e-commerce scenario. The chosen prod
 
 ## Errors
 
-n the execution of this project, there were two errors, the solutions to which may not be necessary in your case, depending on the versions of the libraries and tools used. The first one was related to the `six` library: `ModuleNotFoundError: No module named 'kafka.vendor.six.moves' `; the solution to the problem is on line 12 of the `producer.py` file. The second one was related to supporting files in spark for Kafka streaming: `Failed to find data source: kafka. Please deploy the application as per the deployment section of Structured Streaming + Kafka Integration Guide.`; the solution to this problem can be found on line 28 of the `consumer.py` file.
+In the execution of this project, there were two errors, the solutions to which may not be necessary in your case, depending on the versions of the libraries and tools used. The first one was related to the `six` library: `ModuleNotFoundError: No module named 'kafka.vendor.six.moves' `; the solution to the problem is on line 12 of the `producer.py` file. The second one was related to supporting files in spark for Kafka streaming: `Failed to find data source: kafka. Please deploy the application as per the deployment section of Structured Streaming + Kafka Integration Guide.`; the solution to this problem can be found on line 28 of the `consumer.py` file.
 
 
 ## Commit Patterns
