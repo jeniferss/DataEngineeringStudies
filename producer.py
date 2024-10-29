@@ -116,4 +116,5 @@ while True:
         attempts += 1
 
         if attempts > 5:
+            order_producer.producer.close()
             break
