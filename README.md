@@ -2,8 +2,6 @@
 
 The objective of this project is to create a producer and consumer of sales data for an e-commerce platform using Kafka and Spark.
 
-[Watch Demo Video](images/demo.webm)
-
 ## Table of Contents
 
 1. [Technologies](#technologies)
