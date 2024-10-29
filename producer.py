@@ -78,7 +78,7 @@ class OrderProducer:
             previous_indexes.add(client_index)
             order = {
                 'id': self.faker.uuid4(),
-                'date': datetime.now(tz=self.selected_timezone).strftime('%Y-%m-%d'),
+                'date': datetime.now(tz=self.selected_timezone).strftime('%Y-%m-%d %H:%M:%s'),
                 'client': self.clients[client_index],
                 'items': items,
                 'total': round(sum([item['quantity'] * item['price'] for item in items]), 2)
