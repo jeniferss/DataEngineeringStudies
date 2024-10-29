@@ -106,7 +106,7 @@ while True:
         order_producer.main()
         attempts = 0
 
-        time.sleep(5)
+        time.sleep(60)
     except KeyboardInterrupt:
         print("\033[93m" + "\n-----------------  FINALIZANDO PRODUTOR -----------------\n" + "\033[0m")
         order_producer.producer.close()
