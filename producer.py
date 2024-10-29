@@ -24,7 +24,8 @@ class OrderProducer:
             self, 
             language: str = 'pt_BR', 
             timezone_name: str = 'America/Sao_Paulo',
-            bootstrap_server: str = 'localhost:9092'
+            bootstrap_server: str = 'localhost:9092',
+            topic: str = 'orders'
         ):
 
         self.language = language
@@ -35,6 +36,7 @@ class OrderProducer:
             bootstrap_servers=bootstrap_server,
             value_serializer=lambda v: json.dumps(v).encode('utf-8')
         )
+        self.topic = topic
 
         self.selected_timezone = timezone(timezone_name)
         self.products = self.import_products()
@@ -90,7 +92,7 @@ class OrderProducer:
         print("\033[92m" + "\n-----------------  GERANDO PEDIDOS -----------------\n" + "\033[0m")
         orders = self.generate_orders()
         for order in orders:
-            self.producer.send('orders', value=order)
+            self.producer.send(self.topic, value=order)
             print("\033[94m" + f"\nPedido enviado: {order}\n" + "\033[0m")
             time.sleep(1) 
 
