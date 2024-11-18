@@ -1,4 +1,7 @@
+cassandra-driver==3.29.2
+click==8.1.7
 Faker==30.8.1
+geomet==0.2.1.post1
 inquirerpy==0.3.4
 kafka-python==1.4.7
 numpy==1.26.4

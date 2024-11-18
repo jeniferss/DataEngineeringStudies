@@ -1,6 +1,6 @@
-# Kafka & Spark
+# Kafka, Spark & Cassandra
 
-The objective of this project is to create a producer and consumer of sales data for an e-commerce platform using Kafka and Spark.
+The objective of this project is to create a producer and consumer of sales data for an e-commerce platform using Kafka, Spark and Cassandra.
 
 ## Table of Contents
 
@@ -14,9 +14,10 @@ The objective of this project is to create a producer and consumer of sales data
 
 A list of technologies used within the project:
 
-* [Python](https://www.python.org): Version 3.12
+* [Python](https://www.python.org): Version 3.11.0
 * [Pyspark](https://spark.apache.org/docs/latest/api/python/index.html): Version 3.5.3
-* [Kafka](https://kafka.apache.org/): 3.0.8
+* [Kafka](https://kafka.apache.org/): Version 3.0.8
+* [Cassandra](https://cassandra.apache.org/_/index.html): Version 5.0 .2
 * [Faker](https://pypi.org/project/Faker/): Version 30.8.1
 * [Mockaroo](https://www.mockaroo.com/)
 
@@ -25,6 +26,9 @@ A list of technologies used within the project:
 ```bash
 # Clone this repo
 $ git clone git@github.com:jeniferss/DataEngineeringStudies.git
+
+# Go to the current branch
+$ git checkout feat/atividade06
 ```
 
 ### Windows
@@ -55,9 +59,10 @@ $ pip install -r requirements.txt
 
 ```
 
-### Run Kafka and ZooKeeper, Consumer and Producer
+### Run Kafka and ZooKeeper, Consumer, Producer & Cassandra
 
 *Ensure that Apache Kafka is installed on your machine.*
+*Ensure that Apache Cassandra is installed on your machine.*
 
 **Important**: the producer will run continuously and will generate between 0 and 25 messages per minute. To stop it, just press **Ctrl + C** in the terminal.
 
@@ -71,13 +76,32 @@ $ ./zookeeper-server-start.sh ../config/zookeeper.properties
 # Start Kafka service
 $ ./kafka-server-start.sh ../config/server.properties
 
-# Open the terminal and navigate to this directory
+# Open a new terminal and navigate to the Cassandra directory
+$ cd /your/path/to/cassandra
+
+# Start Cassandra
+$ ./bin/cassandra
+
+# Open a new terminal and navigate to this directory
 # Run consumer
-$ python3 ./consumer.py
+$ python3 consumer.py
 
 # Run producer
-$ python3 ./producer.py
+$ python3 producer.py
 ```
+
+### Check if it is working
+```bash
+# Open a new terminal and navigate to the Cassandra directory
+$ cd /your/path/to/cassandra
+
+# Start CQLSH
+$ ./bin/cqlsh
+
+# Run this query and your output should be similar to the image below
+$ SELECT id AS ID, date AS Data, client.name AS Cliente, total AS Total from sales.orders GROUP BY id;
+```
+![alt text](images/image.png)
 
 ## About
 
@@ -97,6 +121,7 @@ The data in question comes from a simulated e-commerce scenario. The chosen prod
 
 In the execution of this project, there were two errors, the solutions to which may not be necessary in your case, depending on the versions of the libraries and tools used. The first one was related to the `six` library: `ModuleNotFoundError: No module named 'kafka.vendor.six.moves' `; the solution to the problem is on line 12 of the `producer.py` file. The second one was related to supporting files in spark for Kafka streaming: `Failed to find data source: kafka. Please deploy the application as per the deployment section of Structured Streaming + Kafka Integration Guide.`; the solution to this problem can be found on line 28 of the `consumer.py` file.
 
+Additionally, for the Cassandra version, two updates were required for compatibility. The first was the Java JDK update, where version 21 was changed to version 11. The second update was to run the CQL shell, which required using Python version 3.11.
 
 ## Commit Patterns
 
