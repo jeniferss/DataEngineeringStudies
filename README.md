@@ -113,9 +113,8 @@ The data in question comes from a simulated e-commerce scenario. The chosen prod
 - [x] Create a message producer in Python that generates messages in an e-commerce sales format, containing: order ID, client document, purchased products, quantity of each product, total sale amount, date and time of the sale, using the Faker library.
 
 ### Part 02
-- [x] Create a message consumer in PySpark that transforms the data before writing the result to the screen. The transformation can be, for example, the total sale amount grouped by product.
+- [x] Create a message consumer in PySpark that receives the data and saves it in a table in a Cassandra database.
 
-*For this part of the project, the chosen transformation was the quantity of products sold and the total value for each product in each batch read, meaning an aggregation of orders made.*
 
 ## Errors
 
