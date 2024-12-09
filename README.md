@@ -10,6 +10,7 @@ This repository is intended for orchestrating Spark applications using the Apach
 2. [Install and Run](#install-and-run)
 3. [About](#about)
 4. [Databricks Lakehouse Architecture](#databricks-lakehouse-architecture)
+5. [Commit Patterns](#commit-patterns)
 
 ## Technologies
 
@@ -133,3 +134,23 @@ The objective of this activity is to learn about orchestrating Spark application
 ## Databricks Lakehouse Architecture
 
 The Medallion Architecture is a data design pattern used to logically organize data in a lakehouse, aimed at progressively enhancing the structure and quality of data as it flows through each layer of the architecture. The layers include Bronze (raw data), Silver (cleaned and transformed data), and Gold (data ready for analysis).
+
+## Commit Patterns
+
+Clear commit messages help us understand the evolution of the code and make it easier to locate specific changes. With this in mind, it was created a prompt helper to assist in writing commit messages. The messages are categorized by type:
+
+* feat: for new functionalities
+* fix: for bug fixes
+* refac: for code changes that don’t alter functionality
+* docs: for documentation updates, such as changes to README.md
+* test: for adding or modifying tests
+
+Since this tool was developed using [Python 3.11](https://www.python.org/), please ensure that you have it installed on your computer.
+
+Next, create and activate a [virtual environment](https://docs.python.org/3/library/venv.html). After activating the virtual environment, you can run the command: `pip install -r requirements.txt`.
+
+Once the installation is complete, you’re good to go!
+
+Before committing your changes, make sure you have followed all the necessary [Git Steps](https://git-scm.com/docs/gittutorial).
+
+To run the script, use the command: `python commit.py`. If you need to exit the prompt due to an error or any other reason, simply press Ctrl + C.
