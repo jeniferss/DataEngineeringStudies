@@ -10,19 +10,20 @@ if __name__ == '__main__':
     
     spark = SparkSession.builder.appName('Rename Customers').getOrCreate()
 
-    orders_filepath = os.path.join('silver', 'parquets', 'orders.parquet')
-    customers_filepath = os.path.join('silver', 'parquets', 'customers.parquet')
-    order_items_filepath = os.path.join('silver', 'parquets', 'order_item.parquet')
+    BUCKET_NAME = 'js-s3files'
+
+    orders_filepath = 'sparkairflow/silver/orders.parquet'
+    customers_filepath = 'sparkairflow/silver/customers.parquet'
+    order_items_filepath = 'sparkairflow/silver/order_item.parquet'
     
-    Orders = spark.read.parquet(orders_filepath)
-    Customers = spark.read.parquet(customers_filepath)
-    OrderItems = spark.read.parquet(order_items_filepath)
+    Orders = spark.read.parquet(f"s3a://{BUCKET_NAME}/{orders_filepath}")
+    Customers = spark.read.parquet(f"s3a://{BUCKET_NAME}/{customers_filepath}")
+    OrderItems = spark.read.parquet(f"s3a://{BUCKET_NAME}/{order_items_filepath}")
 
     spark.sql("CREATE DATABASE IF NOT EXISTS Sales")
     spark.sql("show databases").show()
 
     spark.sql("USE Sales")
-
 
     Orders.write.saveAsTable("Orders")
     Customers.write.saveAsTable("Customers")
@@ -45,7 +46,8 @@ if __name__ == '__main__':
 
     Summary.show()
      
-    outputdir =  os.path.join('gold', 'parquets', 'summary.parquet')
-    Summary.write.parquet(outputdir, mode="overwrite")
+    output_path = 'sparkairflow/gold/summary.parquet'
+    print(f"Salvando dados no arquivo {output_path}")
+    Summary.write.parquet(f"s3a://{BUCKET_NAME}/{output_path}", mode="overwrite")
 
     spark.stop()

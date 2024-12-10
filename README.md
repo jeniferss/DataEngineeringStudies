@@ -1,6 +1,6 @@
 # Apache Airflow & Spark
 
-This repository is intended for orchestrating Spark applications using the Apache Airflow tool
+This repository is intended for orchestrating Spark applications using the Apache Airflow tool and store files using AWS S3 
 
 ![alt text](images/image.png)
 
@@ -25,6 +25,9 @@ A list of technologies used within the project:
 ```bash
 # Clone this repo
 $ git clone git@github.com:jeniferss/DataEngineeringStudies.git
+
+# Go to the current branch
+$ git checkout feat/atividade07
 ```
 
 ### Windows
