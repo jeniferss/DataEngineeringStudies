@@ -93,7 +93,7 @@ $ gedit airflow.cfg
 dags_folder = /home/your/path/to/this/repo/DataEngineeringStudies/dags
 ```
 
-Finally, you can run Airflow
+Finally, you can run Airflow (with your env active)
 
 ```bash
 # Run webserver
@@ -103,7 +103,7 @@ $ airflow webserver --port 8080
 $ airflow scheduler
 ```
 
-### Apache Airflow Webserver
+### Apache Airflow Webserver & AWS Config
 
 Webserver will start at: `http://127.0.0.1:8080`
 
@@ -111,7 +111,22 @@ From here, you can access the address above in your browser and log in.
 
 The first configuration of the web server should be to change the host in Airflow. To do this, go to Admin > Connections > Search for "spark_default" > Change the "Host" field from "yarn" to "local" and save.
 
-Then, you can go to the "Search Dags" field and search for "spark_jobs_dag." Click on the search result, and you will have access to the interface related to the created Airflow instance. You can execute it by clicking the "Trigger DAG" button in the upper right corner of the screen, where you can observe the execution order and whether the Spark applications were successful or not. You can verify this by looking in the repository for each of the bronze, silver, and gold folders, where a subfolder called `parquet` will be created.
+The second configuration involves setting up an AWS connection. To do this, follow these steps:
+
+1. Go to **Admin** > **Connections**.
+2. Search for **'aws_default'**.
+3. Select **'Amazon Web Services'** as the connection type.
+4. Enter your **Access Key** and **Secret Key**.
+
+Additionally, these variables must be set as environment variables in Airflow. To do so:
+
+1. Go to **Admin** > **Variables**.
+2. Add the following keys and their corresponding values:
+   - `AWS_ACCESS_KEY_ID`
+   - `AWS_SECRET_ACCESS_KEY`
+   - `AWS_SESSION_TOKEN`
+
+Then, you can go to the "Search Dags" field and search for "spark_jobs_dag." Click on the search result, and you will have access to the interface related to the created Airflow instance. You can execute it by clicking the "Trigger DAG" button in the upper right corner of the screen, where you can observe the execution order and whether the Spark applications were successful or not.
 
 
 ## About
@@ -133,6 +148,9 @@ The objective of this activity is to learn about orchestrating Spark application
 
 ### Part 04
 - [x] Create an Airflow instance that executes all PySpark jobs, parallelizing the execution of the bronze and silver layers
+
+### Part 05
+- [x] Change the exercise involving Airflow and Spark so that, instead of reading and writing to the local disk, it uses the AWS S3 tool.
 
 ## Databricks Lakehouse Architecture
 
